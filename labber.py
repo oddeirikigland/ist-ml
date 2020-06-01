@@ -3,6 +3,10 @@ import numpy as np
 from sklearn.naive_bayes import GaussianNB
 from scipy.stats import multivariate_normal
 import matplotlib.pyplot as plt
+from activation_functions import sigmoid, sigmoid_gradient, gradient_cross_entropy
+from error_functions import mean_square_error
+
+np.set_printoptions(precision=5)
 
 # LAB 1
 # information gain = E_start - E
@@ -82,8 +86,6 @@ def multi_gauss(test, train):
 # )
 
 # Lab 3
-def mean_square_error(pred, y):
-    return np.mean(np.square(y - pred))
 
 
 def closed_form_lin_reg(X, y, query):
@@ -192,14 +194,6 @@ def plot_task_6(weights_log, weights_quad):
 # Gradient descent learning
 
 
-def sigmoid(x):
-    return 1 / (1 + np.exp(-x))
-
-
-def sigmoid_gradient(x):
-    return sigmoid(x) * (1 - sigmoid(x))
-
-
 def update_rule(x, t, w, gradient_func, learning_rate=1):
     sum1 = 0
     for point, target in zip(x, t):
@@ -229,27 +223,23 @@ def gradient_task_1(x, t, w):
 # Gradient descent one update
 w = np.array([1, 1, 1])
 w = update_rule(x, t, w, gradient_task_1)
-print(w)
+# print(w)
 
 # Stochastic gradient descent
 w = np.array([1, 1, 1])
 w = stochastic_update_rule(x, t, w, gradient_task_1, one_example_only=True)
-print(w)
-
-
-def gradient_cross_entropy(x, t, w):
-    return -x * (t - sigmoid(np.dot(w, x)))
+# print(w)
 
 
 # Gradient descent one update, task 2
 w = np.array([1, 1, 1])
 w = update_rule(x, t, w, gradient_cross_entropy)
-print(w)
+# print(w)
 
 # Stochastic gradient descent, task 2
 w = np.array([1, 1, 1])
 w = stochastic_update_rule(x, t, w, gradient_cross_entropy, one_example_only=True)
-print(w)
+# print(w)
 
 
 def gradient_task_3(x, t, w):
@@ -265,4 +255,4 @@ w = np.array([0, 1, 0])
 w = stochastic_update_rule(
     x, t, w, gradient_task_3, learning_rate=2, one_example_only=True
 )
-print(w)
+# print(w)
