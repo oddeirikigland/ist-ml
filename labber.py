@@ -1,10 +1,10 @@
 from math import log2, log
 import numpy as np
 from sklearn.naive_bayes import GaussianNB
-from scipy.stats import multivariate_normal
 import matplotlib.pyplot as plt
 from activation_functions import sigmoid, sigmoid_gradient, gradient_cross_entropy
 from error_functions import mean_square_error
+from normal_distribution import multi_gauss
 
 np.set_printoptions(precision=5)
 
@@ -71,10 +71,6 @@ def naive_bayes():
 c0 = np.array([[170, 60, 50], [160, 160, 150]])
 c1 = np.array([[80, 90, 70], [220, 200, 190]])
 test = np.array([100, 225])
-
-
-def multi_gauss(test, train):
-    return multivariate_normal.pdf(test, mean=np.mean(train, axis=1), cov=np.cov(train))
 
 
 # print(multi_gauss(test, c0))
