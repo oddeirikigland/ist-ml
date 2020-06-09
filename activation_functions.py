@@ -23,3 +23,11 @@ def gradient_hyperbolic_tangent(x):
 
 def softmax(x):
     return np.exp(x) / np.sum(np.exp(x), axis=0)
+
+
+def sgn(x):
+    if x == 0:
+        return 0
+    if x < 0:
+        return -1
+    return 1
