@@ -8,40 +8,6 @@ from normal_distribution import multi_gauss
 
 np.set_printoptions(precision=5)
 
-# LAB 1
-# information gain = E_start - E
-# want highest value
-
-
-def entropy(values):
-    sum1 = 0
-    for v in values:
-        sum1 += v * log2(v)
-    return -sum1
-
-
-# print(entropy([0.5, 0.5]))
-# print(entropy([1]))
-# print(entropy([1 / 3, 2 / 3]))
-# print(entropy([1 / 6, 1 / 6, 1 / 3, 1 / 3]))
-# print(entropy([1 / 3, 1 / 3, 1 / 3]))
-
-
-def gini(values):
-    sum1 = 0
-    for v in values:
-        sum1 += v * v
-    return 1 - sum1
-
-
-# print(gini([0.5, 0.5]))
-
-# print(np.cov(np.array([[-2, -1, 0, -2], [2, 3, 1, 1]])))  # one array for each row
-
-# c0 = [[170, 60, 50,], [160, 160, 150]]
-# print(np.mean(c0, axis=1))
-# print(np.cov(c0))
-
 # LAB 2
 # The maximum likelihood gaussian is defined by the sample mean vector and
 # the covariance matrix
