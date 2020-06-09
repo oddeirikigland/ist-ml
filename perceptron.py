@@ -17,7 +17,6 @@ def perception_learning(training_data, target_data, weights, bias, learning_rate
             print(
                 "o = sgn({}) = {}, delta={}, weights={}".format(o, pred, delta, weights)
             )
-            a = 3
         if not weights_updated:
             print("converged")
             break
