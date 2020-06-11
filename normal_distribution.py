@@ -8,3 +8,7 @@ def multi_gauss(test, train):
 
 def norm_value(value, mean, std):
     return norm(mean, std).pdf(value)
+
+
+def multi_gauss_test_mean_cov(test, mean, cov):
+    return multivariate_normal.pdf(test, mean=mean, cov=cov)

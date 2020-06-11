@@ -1,6 +1,6 @@
 import numpy as np
 import matplotlib.pyplot as plt
-from normal_distribution import norm_value
+from normal_distribution import norm_value, multi_gauss_test_mean_cov
 
 np.set_printoptions(precision=4)
 
@@ -69,7 +69,7 @@ def m_step(training_data, norm_posteriors, binary):
 
 def em_clustering(training_data, priors, likelihoods, binary=True):
     norm_posteriors = e_step(training_data, priors, likelihoods, binary)
-    norm_posteriors = [[0.0293, 0.9707], [0.62, 0.38], [0.38, 0.62]]
+    print("Norm posteriors: {}".format(norm_posteriors))
     likelihoods, priors = m_step(training_data, norm_posteriors, binary)
     return likelihoods, priors
 
@@ -139,3 +139,21 @@ def task_2():
     probability = check_probability_data(training_data, priors, likelihoods)
     print("Probability model 2: {}".format(probability))
     # plot_cluster()
+
+
+def hw3():
+    data = [[2, 4], [4, 2], [0, 0]]
+    priors = [0.7, 0.3]
+    likelihoods = [
+        [
+            multi_gauss_test_mean_cov(value, mean=[0, 4], cov=[[1, 0], [0, 1]])
+            for value in data
+        ],
+        [
+            multi_gauss_test_mean_cov(value, mean=[4, 0], cov=[[1, 0], [0, 1]])
+            for value in data
+        ],
+    ]
+    print(likelihoods)
+
+    likelihoods, priors = em_clustering(data, priors, likelihoods, binary=False)

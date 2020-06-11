@@ -46,12 +46,13 @@ def gauss_props(query, column, name):
     gaus = multi_gauss(query, column)
     print("{}, mean: {}, std: {}, gaus: {}".format(name, mean, std, gaus))
 
+
 # One dim
-gauss_props(10, [[0,0,20,20]], "x_1_a")
-gauss_props(10, [[10,20,10,20]], "x_2_a")
-gauss_props(10, [[30,30,50,50]], "x_1_b")
-gauss_props(10, [[30,40,30,40]], "x_2_b")
+gauss_props(10, [[0, 0, 20, 20]], "x_1_a")
+gauss_props(10, [[10, 20, 10, 20]], "x_2_a")
+gauss_props(10, [[30, 30, 50, 50]], "x_1_b")
+gauss_props(10, [[30, 40, 30, 40]], "x_2_b")
 
 # two dim
-gauss_props([10,10], [[0,0,20,20],[10,20,10,20]], "x_a")
-gauss_props([10,10], [[30,30,50,50],[30,40,30,40]], "x_b")
+gauss_props([10, 10], [[0, 0, 20, 20], [10, 20, 10, 20]], "x_a")
+gauss_props([10, 10], [[30, 30, 50, 50], [30, 40, 30, 40]], "x_b")
