@@ -30,11 +30,15 @@ def gradient_softmax(x):
 
 
 def sgn(x):
-    if x == 0:
-        return 0
+    # if x == 0:
+    #     return 0
     if x < 0:
         return -1
     return 1
+
+
+def step(x):
+    return 1 if x >= 0 else 0
 
 
 if __name__ == "__main__":

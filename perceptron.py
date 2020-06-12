@@ -23,10 +23,21 @@ def perception_learning(training_data, target_data, weights, bias, learning_rate
     return weights
 
 
-x = np.array([[1, 1], [2, 2], [0, 1], [0, 2]])
-t = np.array([1, 1, -1, -1])
+def query(weights, query):
+    query_with_w0 = np.concatenate(([1], query))
+    o = np.dot(w, query_with_w0)
+    pred = sgn(o)
+    print(
+        "weights: {}, query: {}, pred: o = sgn({}) = {}".format(weights, query, o, pred)
+    )
+    return pred
+
+
+x = np.array([[0, 0, 0], [0, 2, 1], [1, 1, 1], [1, -1, 0]])
+t = np.array([-1, 1, 1, -1])
 w = np.array([1] * (len(x[0]) + 1))
 b = 1
 learning_rate = 1
 w = perception_learning(x, t, w, b, learning_rate)
-print(w)
+print("weights: {}".format(w))
+query(weights=w, query=[0, 0, 1])
