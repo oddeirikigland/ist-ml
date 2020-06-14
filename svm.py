@@ -47,13 +47,15 @@ def get_coefficients(training_data, targets, bias):
 
 
 def task_1():
-    svm_coefficient_formula(
+    query = np.array([1, 1, 8])
+    res = svm_coefficient_formula(
         training_data=np.array([[0, 1, 8], [1, 0, 6], [1, 1, 7], [1, 1, 3]]),
         coefficients=np.array([1, 0.5, 1, 0.5]),
         targets=np.array([1, -1, -1, 1]),
         bias=-3,
-        query=np.array([1, 1, 8]),
+        query=query,
     )
+    print("query: {} classified as {}".format(query, res))
 
 
 def task_2():
@@ -64,6 +66,7 @@ def task_2():
     weight_vector = get_weight_vector(
         training_data=training_data, coefficients=coefficients, targets=targets,
     )
+    print("weight_vector: {}".format(weight_vector))
 
     bias = get_bias(
         training_example=np.array([2.07, 0.91]), target=1, weight_vector=weight_vector
@@ -120,8 +123,7 @@ def task_3():
     for x, t in zip(training_data, targets):
         pred = np.dot(np.transpose(weight_vector), x) + bias
         if np.abs(pred - t) < 0.01:
-            # print("{} is a support vector!".format(x))
-            pass
+            print("{} is a support vector!".format(x))
 
     coefficients = get_coefficients(
         training_data=np.array([[1.14, 3.21], [-2.3, 3.48], [-0.94, 5.04]]),
@@ -132,3 +134,10 @@ def task_3():
 
     margin = get_margin(weight_vector)
     print("Margin: {}".format(margin))
+
+
+if __name__ == "__main__":
+    # task_1()
+    # task_2()
+    # task_3()
+    pass

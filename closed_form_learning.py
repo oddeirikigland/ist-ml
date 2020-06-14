@@ -20,6 +20,7 @@ def closed_form_lin_reg(X, y, query, ridge_regression=False, lambda_reg=2):
     return pred, weights, error
 
 
+# remember to add the bias as first element in the x data, as done below!
 x = np.array([[1, 1, 1], [1, 2, 1], [1, 1, 3], [1, 3, 3]])
 t = np.array([1.4, 0.5, 2, 2.5])
 pred, weights, error = closed_form_lin_reg(x, t, query=np.array([1, 2, 3]))

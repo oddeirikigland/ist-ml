@@ -60,19 +60,23 @@ def mean_inter_cluster_centroid_euclidean_dist(clusters):
     return total_dist / len(clusters) ** 2
 
 
-training_data = [[1, 0, 0], [8, 8, 4], [3, 3, 0], [0, 0, 1], [0, 1, 0], [3, 2, 1]]
+# training_data = [[1, 0, 0], [8, 8, 4], [3, 3, 0], [0, 0, 1], [0, 1, 0], [3, 2, 1]]
 
-clusters_2, cluster_dict_2 = k_means(
-    input=training_data, clusters=training_data[:2], epochs=3
-)
-clusters_3, cluster_dict_3 = k_means(
-    input=training_data, clusters=training_data[:3], epochs=3
-)
+# clusters_2, cluster_dict_2 = k_means(
+#     input=training_data, clusters=training_data[:2], epochs=3
+# )
+# clusters_3, cluster_dict_3 = k_means(
+#     input=training_data, clusters=training_data[:3], epochs=3
+# )
 
-# this functions uses euclidean distance, in the lab they dont not square the distance
+# # this functions uses euclidean distance, in the lab they dont not square the distance
 
 # print(intra_cluster_euclidean_dist(training_data, clusters_2, cluster_dict_2))
 # print(intra_cluster_euclidean_dist(training_data, clusters_3, cluster_dict_3))
 
 # print(mean_inter_cluster_centroid_euclidean_dist(clusters_2))
 # print(mean_inter_cluster_centroid_euclidean_dist(clusters_3))
+
+# data = [[0, 0], [1, 0], [0, 2], [2, 2]]
+# clust = [[2, 0], [2, 1]]
+# k_means(input=data, clusters=clust, epochs=3)

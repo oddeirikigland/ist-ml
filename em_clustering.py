@@ -31,7 +31,9 @@ def e_step(points, priors, likelihoods, binary):
 
             print()
             cluster_count += 1
-        norm_posteriors.append(joint_probs / np.linalg.norm(joint_probs))
+        norm_posterior = joint_probs / np.linalg.norm(joint_probs)
+        print("\tnorm_posterior: {}".format(norm_posterior))
+        norm_posteriors.append(norm_posterior)
         point_count += 1
         print()
     return norm_posteriors
@@ -84,7 +86,6 @@ def check_probability_data(training_data, priors, likelihoods):
             )
         probability = sum([a * b for a, b in zip(likelihood_res, priors)])
         probabilities.append(probability)
-    a = 2
     return np.prod(probabilities)
 
 
@@ -99,13 +100,14 @@ def task_1():
     priors = [1 / 3] * 3
     likelihoods = [[0.8, 0.5, 0.1, 0.1], [0.1, 0.5, 0.4, 0.8], [0.1, 0.1, 0.9, 0.2]]
 
-    probability = check_probability_data(training_data, priors, likelihoods)
-    print("Probability model 1: {}".format(probability))
+    probability1 = check_probability_data(training_data, priors, likelihoods)
 
     likelihoods, priors = em_clustering(training_data, priors, likelihoods)
 
-    probability = check_probability_data(training_data, priors, likelihoods)
-    print("Probability model 2: {}".format(probability))
+    probability2 = check_probability_data(training_data, priors, likelihoods)
+
+    print("Probability model 1: {}".format(probability1))
+    print("Probability model 2: {}".format(probability2))
 
 
 def plot_cluster():
